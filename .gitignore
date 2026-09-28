@@ -1,0 +1,6 @@
+node_modules/
+out/
+.DS_Store
+# 可选字体只在本机用,别提交(授权不允许二次分发)
+public/fonts/extra/*
+!public/fonts/extra/README.md

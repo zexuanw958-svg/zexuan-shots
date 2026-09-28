@@ -1,0 +1,23 @@
+{
+  "name": "zexuan-shots",
+  "version": "1.0.0",
+  "private": true,
+  "description": "泽轩604 的 Remotion 字效 / 镜头模板：18 个，照秋芝全解系列逐帧实测复刻，参数化可换内容。",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render",
+    "still": "remotion still",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.484",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.484"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "typescript": "5.9.3"
+  },
+  "license": "MIT"
+}

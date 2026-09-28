@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 149.27 149.27" width="149.27" height="149.27">
+  <!-- 示例图标:白圆底 + 绿色像素「✓」,换成你自己的图标 -->
+  <circle cx="74.635" cy="74.635" r="74.637" fill="#FFFFFF"/>
+  <g fill="#2FA84F">
+    <rect x="30" y="72" width="14" height="14"/><rect x="44" y="86" width="14" height="14"/><rect x="58" y="100" width="14" height="14"/>
+    <rect x="72" y="86" width="14" height="14"/><rect x="86" y="72" width="14" height="14"/><rect x="100" y="58" width="14" height="14"/><rect x="114" y="44" width="14" height="14"/>
+  </g>
+</svg>
