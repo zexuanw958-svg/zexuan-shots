@@ -9,7 +9,7 @@
  *      没放就回退到表里的开源字体,画面照样能渲,只是字形和原片不一样。
  *      下载地址与授权见 public/fonts/extra/README.md。
  */
-import { continueRender, delayRender, staticFile } from 'remotion';
+import { continueRender, delayRender, getStaticFiles, staticFile } from 'remotion';
 
 type Face = { family: string; src: string; desc?: FontFaceDescriptors };
 
@@ -51,12 +51,19 @@ const OPTIONAL: Array<{ family: string; file: string; fallback: string; desc?: F
   { family: 'AvenirNextHeavy', file: 'AvenirNext-Heavy.ttf', fallback: NOTO_800, desc: { weight: '800' }, local: ['AvenirNext-Heavy', 'Avenir Next Heavy'] },
 ];
 
+// 只加载 public/ 里真的存在的可选字体文件(getStaticFiles 在 Studio 和渲染时都可用),免得控制台刷 404
+const present = new Set(getStaticFiles().map((f) => f.name));
+
 const faces: Face[] = [
   ...BUNDLED,
   ...OPTIONAL.map((o) => ({
     family: o.family,
     // FontFace 的 src 按顺序试:本机字体 → extra/ 里的文件 → 开源兜底
-    src: [...(o.local ?? []).map((n) => `local('${n}')`), url(`fonts/extra/${o.file}`), url(o.fallback)].join(', '),
+    src: [
+      ...(o.local ?? []).map((n) => `local('${n}')`),
+      ...(present.has(`fonts/extra/${o.file}`) ? [url(`fonts/extra/${o.file}`)] : []),
+      url(o.fallback),
+    ].join(', '),
     desc: o.desc,
   })),
 ];
